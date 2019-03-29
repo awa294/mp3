@@ -550,7 +550,7 @@ public class UpdateCenter extends AbstractModelObject implements Saveable, OnMas
         return new XmlFile(XSTREAM,new File(Jenkins.getInstance().root,
                                     UpdateCenter.class.getName()+".xml"));
     }
-    public tryAddPluginToMap(Map<String,Plugin> pluginMap, Plugin plugin) {
+    public void tryAddPluginToMap(Map<String,Plugin> pluginMap, Plugin plugin) {
 	                final Plugin existing = pluginMap.get(plugin.name);
                 if (existing == null) {
                     pluginMap.put(plugin.name, plugin);

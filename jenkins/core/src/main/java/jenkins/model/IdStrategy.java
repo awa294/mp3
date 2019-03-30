@@ -202,7 +202,6 @@ public abstract class IdStrategy extends AbstractDescribableImpl<IdStrategy> imp
         @Nonnull
         public String filenameOf(@Nonnull String id) {
             if (id.matches("[a-z0-9_. -]+")) {
-                return id;
             } else {
                 StringBuilder buf = new StringBuilder(id.length() + 16);
                 for (char c : id.toCharArray()) {
@@ -231,6 +230,7 @@ public abstract class IdStrategy extends AbstractDescribableImpl<IdStrategy> imp
             } else {
                 StringBuilder buf = new StringBuilder(filename.length());
                 final char[] chars = filename.toCharArray();
+                outer:
                 for (int i = 0; i < chars.length; i++) {
                     char c = chars[i];
                     if ('a' <= c && c <= 'z') {
@@ -247,29 +247,15 @@ public abstract class IdStrategy extends AbstractDescribableImpl<IdStrategy> imp
                     } else if (c == '$') {
                         StringBuilder hex = new StringBuilder(4);
                         i++;
-                        if (i < chars.length) {
-                            hex.append(chars[i]);
-                        } else {
-                            break;
-                        }
-                        i++;
-                        if (i < chars.length) {
-                            hex.append(chars[i]);
-                        } else {
-                            break;
-                        }
-                        i++;
-                        if (i < chars.length) {
-                            hex.append(chars[i]);
-                        } else {
-                            break;
-                        }
-                        i++;
-                        if (i < chars.length) {
-                            hex.append(chars[i]);
-                        } else {
-                            break;
-                        }
+                            (for int k = 0; k < 4, k ++) {
+                                if (i < chars.length) {
+                                        hex.append(chars[i]);
+                                 } else {
+                                   break outer;
+                                    }
+                                i++;
+                                }
+                            }
                         buf.append(Character.valueOf((char)Integer.parseInt(hex.toString(), 16)));
                     }
                 }

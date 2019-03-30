@@ -1,0 +1,16 @@
+Question 1:
+The code smell name is 'duplicated code'.
+
+--------------------------------------------------------------------------------
+Question 3:
+The code smell name is 'feature envy'.
+
+We could remove the updateAndTrim method from Node.java and move it to Jenkins.java  to remove this code smell. Also, remove 'jenkins.' from the front of the two methods within updateAndTrim in Jenkins.java. And add 'jenkins.' to the front of the four updateAndTrim method calls in Node.java.
+
+--------------------------------------------------------------------------------
+Question 4:
+We could get rid of this 'duplicated code' code smell by creating a for loop to iterate as much as the code was repeated or create a method with the code and call it four times.
+
+--------------------------------------------------------------------------------
+Question 6:
+We eliminated this duplicate code by moving rss methods in hudson.model.Job and hudson.model.Computer to RSS.java in the same directory. This build was not successful. 

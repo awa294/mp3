@@ -218,9 +218,9 @@ public abstract class IdStrategy extends AbstractDescribableImpl<IdStrategy> imp
                         buf.append('$');
                         buf.append(StringUtils.leftPad(Integer.toHexString(c & 0xffff), 4, '0'));
                     }
-                }
-                return buf.toString();
+                }    
             }
+            return buf.toString();
         }
 
         @Override

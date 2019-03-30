@@ -4,7 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 
-public class idFromFileNameTest {
+public class idFromFilenameTest {
 @Test 
      public void idFromFilenameTest1() {
         IdStrategy.CaseSensitive cs = new IdStrategy.CaseSensitive();

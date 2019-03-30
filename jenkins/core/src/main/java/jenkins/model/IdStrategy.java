@@ -219,8 +219,8 @@ public abstract class IdStrategy extends AbstractDescribableImpl<IdStrategy> imp
                         buf.append(StringUtils.leftPad(Integer.toHexString(c & 0xffff), 4, '0'));
                     }
                 }    
-            }
             return buf.toString();
+            }            
         }
 
         @Override
@@ -246,20 +246,19 @@ public abstract class IdStrategy extends AbstractDescribableImpl<IdStrategy> imp
                         }
                     } else if (c == '$') {
                         StringBuilder hex = new StringBuilder(4);
-                        i++;
                         for (int k = 0; k < 4; k ++) {
+                            i++;
                             if (i < chars.length) {
                                 hex.append(chars[i]);
                             } else {
                                 break outer;
                             }
-                            i++;
                         }
                         buf.append(Character.valueOf((char)Integer.parseInt(hex.toString(), 16)));
                     }
-                }
-                return buf.toString();
-            }
+                }    
+            return buf.toString();
+            }            
         }
         
 

@@ -161,7 +161,7 @@ public class Connection {
         } else {
             otherHalf = KeyFactory.getInstance("DH").generatePublic(readKey());
 
-            keyPair = generateKeyPairWithSpec(((DHPublicKey) otherHalf.getParams());
+            keyPair = generateKeyPairWithSpec(((DHPublicKey) otherHalf.getParams()));
             
             // send a half and get a half
             writeKey(keyPair.getPublic());

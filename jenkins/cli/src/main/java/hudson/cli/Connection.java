@@ -174,7 +174,7 @@ public class Connection {
         return ka;
     }
     
-    public void generateKeyPairWithSpec(DHParameterSpec parameter) {
+    public KeyPair generateKeyPairWithSpec(DHParameterSpec parameter) {
             KeyPairGenerator kpg = KeyPairGenerator.getInstance("DH");
             kpg.initialize(parameter);
             return kpg.generateKeyPair();    

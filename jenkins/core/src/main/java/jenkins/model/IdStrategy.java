@@ -260,7 +260,7 @@ public abstract class IdStrategy extends AbstractDescribableImpl<IdStrategy> imp
                 }
                 return buf.toString();
             }
-        }
+        
 
         /**
          * {@inheritDoc}

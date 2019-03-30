@@ -202,6 +202,7 @@ public abstract class IdStrategy extends AbstractDescribableImpl<IdStrategy> imp
         @Nonnull
         public String filenameOf(@Nonnull String id) {
             if (id.matches("[a-z0-9_. -]+")) {
+                    return id; 
             } else {
                 StringBuilder buf = new StringBuilder(id.length() + 16);
                 for (char c : id.toCharArray()) {
